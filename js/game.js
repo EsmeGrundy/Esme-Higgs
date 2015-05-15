@@ -9,7 +9,7 @@ var game = {
     // Run on page load.
     "onload": function() {
         // Initialize the video.
-        if (!me.video.init("screen", me.video.CANVAS, 480, 320, true, 'auto')) {
+        if (!me.video.init("screen", me.video.CANVAS, 1067, 600, true, 'auto')) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
@@ -63,6 +63,6 @@ var game = {
         me.state.set(me.state.COLL, new game.Colliders());
 
         // Start the game.
-        me.state.change(me.state.PLAY);
+        me.state.change(me.state.MENU);
     }
 };
