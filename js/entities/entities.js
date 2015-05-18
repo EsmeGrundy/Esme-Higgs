@@ -1,7 +1,6 @@
 game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y, settings);
-        this.setPlayerTimers();
         this.setAttributes();
         this.type = "PlayerEntity";
         this.setFlags();
@@ -22,23 +21,11 @@ game.PlayerEntity = me.Entity.extend({
 
             }]);
     },
-    setPlayerTimers: function() {
-        this.now = new Date().getTime();
-        this.lastHit = this.now;
-        this.lastSpear = this.now;
-        this.lastWhirlpool = this.now;
-        this.lastBurst = this.now;
-        this.lastAttack = new Date().getTime();
-    },
     setAttributes: function() {
-        this.health = 20;
         this.body.setVelocity(game.data.playerMoveSpeed, 20);
-        this.attack = game.data.playerAttack;
     },
     setFlags: function() {
         this.facing = "right";
-        this.dead = false;
-        this.attacking = false;
     },
     addAnimation: function() {
         this.renderable.addAnimation("idle", [0]);
@@ -136,33 +123,6 @@ game.PlayerEntity = me.Entity.extend({
 //            //the level of ability3 is increased
 //            game.data.ability3 += 1;
 //            this.throwSpear();
-//        }
-//    },
-//    throwSpear: function() {
-//         //if at least 3 seconds have passed since the last whirlpool was created and the level of ability3 is more than 0
-//        if (this.now - this.lastSpear >= game.data.spearTimer && game.data.ability3 > 0) {
-//            this.lastSpear = this.now;
-//            //adds the spear to the world
-//            var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {}, this.facing);
-//            me.game.world.addChild(spear, 10);
-//        }
-//    },
-//    makeWhirlpool: function() {
-//        //if at least 5 seconds have passed since the last whirlpool was created and the level of ability2 is more than 0
-//        if (this.now - this.lastWhirlpool >= game.data.whirlpoolTimer && game.data.ability2 > 0) {
-//            this.lastWhirlpool = this.now;
-//            //adds a whirlpool to the world
-//            var whirlpool = me.pool.pull("whirlpool", this.pos.x, this.pos.y, {}, this.facing);
-//            me.game.world.addChild(whirlpool, 10);
-//        }
-//    },
-//    Bubble: function() {
-//         //if at least 1 seconds have passed since the last whirlpool was created and the level of ability1 is more than 0
-//        if (this.now - this.lastBurst >= game.data.burstTimer && game.data.ability1 > 0) {
-//            this.lastBurst = this.now;
-//            //adds a bubble to the world
-//            var bubble = me.pool.pull("bubble", this.pos.x, this.pos.y, {}, this.facing);
-//            me.game.world.addChild(bubble, 10);
 //        }
 //    },
     setAnimation: function() {

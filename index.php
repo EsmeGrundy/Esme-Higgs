@@ -101,7 +101,7 @@ require_once("php/controller/create-db.php");
                 })
                         .success(function(response) {
                             if (response === "true") {
-                                me.state.change(me.state.PLAY);
+                                me.state.change(me.state.CHAR);
                             } else {
                                 alert(response);
                             }
@@ -131,7 +131,7 @@ require_once("php/controller/create-db.php");
                                 game.data.exp2 = data["exp2"];
                                 game.data.exp3 = data["exp3"];
                                 game.data.exp4 = data["exp4"];
-                                me.state.change(me.state.SPENDEXP);
+                                me.state.change(me.state.CHAR);
                             }
                         })
                         .fail(function(response) {

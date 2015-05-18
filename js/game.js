@@ -4,7 +4,10 @@ var game = {
     // an object where to store game information
     data: {
         // score
-        score: 0
+        score: 0,
+        playerMoveSpeed: 5,
+        character: "",
+        player: ""
     },
     // Run on page load.
     "onload": function() {
@@ -51,7 +54,7 @@ var game = {
     },
     // Run on game resources loaded.
     "loaded": function() {
-        me.pool.register("orcSpear", game.PlayerEntity, true);
+        me.pool.register("proton", game.PlayerEntity, true);
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());

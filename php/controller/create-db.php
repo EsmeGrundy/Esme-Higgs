@@ -12,3 +12,10 @@
             . "exp3 int(4),"
             . "exp4 int(4), "
             . "PRIMARY KEY (id))");
+    
+            if ($query) {
+                echo "Successfully created table";
+            }
+         else {
+            echo "<p class='queries'>" . $_SESSION["connection"]->error . "</p>";;
+        }
