@@ -5,6 +5,8 @@ var game = {
     data: {
         // score
         score: 0,
+        option1: "",
+        option2: "",
         playerMoveSpeed: 5,
         character: "",
         player: ""
@@ -36,7 +38,7 @@ var game = {
 
         //creates the character state
         me.state.CHAR = 115;
-        
+
         //creates the collider state
         me.state.COLL = 116;
 
@@ -55,6 +57,12 @@ var game = {
     // Run on game resources loaded.
     "loaded": function() {
         me.pool.register("proton", game.PlayerEntity, true);
+
+        me.pool.register("neutron", game.Neutron, true);
+        
+        me.pool.register("GameTimerManager", game.GameTimerManager, true);
+        me.pool.register("HeroDeathManager", game.HeroDeathManager, true);
+        me.pool.register("ExperienceManager", game.ExperienceManager, true);
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());

@@ -6,6 +6,7 @@ game.resources = [
     {name: "Back-Switzerland", type: "image", src: "data/img/Back-Switzerland.png"},
     {name: "meta-tiles", type: "image", src: "data/img/meta-tiles.png"},
     {name: "proton", type: "image", src: "data/img/Particle1.png"},
+    {name: "neutron", type: "image", src: "data/img/Particle2.png"},
     {name: "title-screen", type: "image", src: "data/img/title.png"},
     {name: "new-screen", type: "image", src: "data/img/newpic.png"},
     {name: "load-screen", type: "image", src: "data/img/loadpic.png"},

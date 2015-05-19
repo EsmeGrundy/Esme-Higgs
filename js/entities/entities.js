@@ -11,12 +11,12 @@ game.PlayerEntity = me.Entity.extend({
     setSuper: function(x, y, settings) {
         this._super(me.Entity, "init", [x, y, {
                 image: "proton",
-                height: 256,
-                width: 256,
-                spriteheight: "256",
-                spritewidth: "256",
+                height: 128,
+                width: 128,
+                spriteheight: "128",
+                spritewidth: "128",
                 getShape: function() {
-                    return(new me.Rect(0, 0, 256, 256)).toPolygon();
+                    return(new me.Rect(0, 0, 128, 128)).toPolygon();
                 }
 
             }]);
@@ -35,7 +35,7 @@ game.PlayerEntity = me.Entity.extend({
     update: function(delta) {
 //        this.now = new Date().getTime();
 //        this.dead = this.checkIfDead();
-//        this.checkKeyPressesAndMove();
+        this.checkKeyPressesAndMove();
 //        this.checkAbilityKeys();
         this.setAnimation();
 
@@ -57,22 +57,22 @@ game.PlayerEntity = me.Entity.extend({
 //            this.health = game.data.playerHealth;
 //        }
 //    },
-//    checkKeyPressesAndMove: function() {
-//        //if the player presses the right arrow key..
-//        if (me.input.isKeyPressed("right")) {
-//            //the player moves right as dictated by the moveRight function
-//            this.moveRight();
-//        }
-//        //if the player presses the left arrow key...
-//        else if (me.input.isKeyPressed("left")) {
-//            //the player moves left as dictated by the moveLeft function
-//            this.moveLeft();
-//        }
-//        //if no arrow key is pressed
-//        else {
-//            //the player does not move
-//            this.body.vel.x = 0;
-//        }
+    checkKeyPressesAndMove: function() {
+        //if the player presses the right arrow key..
+        if (me.input.isKeyPressed("right")) {
+            //the player moves right as dictated by the moveRight function
+            this.moveRight();
+        }
+        //if the player presses the left arrow key...
+        else if (me.input.isKeyPressed("left")) {
+            //the player moves left as dictated by the moveLeft function
+            this.moveLeft();
+        }
+        //if no arrow key is pressed
+        else {
+            //the player does not move
+            this.body.vel.x = 0;
+        }
 //        //checks if the up arrow key is pressed
 //        if (me.input.isKeyPressed("jump")) {
 //            //checks if mario is not already jumping or falling
@@ -82,23 +82,23 @@ game.PlayerEntity = me.Entity.extend({
 //        }
 //        //this.attacking is true if the "a" key is pressed
 //        this.attacking = me.input.isKeyPressed("attack");
-//    },
-//    moveRight: function() {
-//        //sets the direction the player is facing to right
-//        this.facing = "right";
-//        //moves the player's position to the right
-//        this.body.vel.x += this.body.accel.x * me.timer.tick;
-//        //flips the animation
-//        this.flipX(true);
-//    },
-//    moveLeft: function() {
-//        //sets the direction the player is facing to left
-//        this.facing = "left";
-//        //moves the position of the player to the left
-//        this.body.vel.x -= this.body.accel.x * me.timer.tick;
-//        //the animation stays the same
-//        this.flipX(false);
-//    },
+    },
+    moveRight: function() {
+        //sets the direction the player is facing to right
+        this.facing = "right";
+        //moves the player's position to the right
+        this.body.vel.x += this.body.accel.x * me.timer.tick;
+        //flips the animation
+        this.flipX(true);
+    },
+    moveLeft: function() {
+        //sets the direction the player is facing to left
+        this.facing = "left";
+        //moves the position of the player to the left
+        this.body.vel.x -= this.body.accel.x * me.timer.tick;
+        //the animation stays the same
+        this.flipX(false);
+    },
 //    jump: function() {
 //        //sets mario's velocity in the y direction to the y velocity from setVelocity and smooths animation
 //        this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
