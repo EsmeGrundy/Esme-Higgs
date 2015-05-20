@@ -48,12 +48,14 @@ require_once("php/controller/create-db.php");
         <script type="text/javascript" src="js/resources.js"></script>
 
         <script type="text/javascript" src="js/entities/entities.js"></script>
+        <script type="text/javascript" src="js/entities/neutron.js"></script>
         <script type="text/javascript" src="js/entities/HUD.js"></script>
 
         <script type="text/javascript" src="js/screens/title.js"></script>
         <script type="text/javascript" src="js/screens/play.js"></script>
         <script type="text/javascript" src="js/screens/spendFunds.js"></script>
         <script type="text/javascript" src="js/screens/particles.js"></script>
+        <script type="text/javascript" src="js/screens/particles2.js"></script>
         <script type="text/javascript" src="js/screens/newProfile.js"></script>
         <script type="text/javascript" src="js/screens/loadProfile.js"></script>
         <script type="text/javascript" src="js/screens/restart.js"></script>

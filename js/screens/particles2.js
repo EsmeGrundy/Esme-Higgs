@@ -1,4 +1,4 @@
-game.Characters = me.ScreenObject.extend({
+game.Characters2 = me.ScreenObject.extend({
     onResetEvent: function() {
         //adds the screen to the world
         me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage("exp-screen")), -10);
@@ -19,7 +19,7 @@ game.Characters = me.ScreenObject.extend({
             draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "PRESS F1 to F5 TO BUY, PRESS F6 TO SKIP", this.pos.x, this.pos.y);
 //                this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.x + 100, this.pos.y + 50);
-                this.font.draw(renderer.getContext(), "F1: PROTON", this.pos.x, this.pos.y + 100);
+                this.font.draw(renderer.getContext(), "F1: NEUTRON", this.pos.x, this.pos.y + 100);
 //                this.font.draw(renderer.getContext(), "F2: ORC", this.pos.x, this.pos.y + 150);
 //                this.font.draw(renderer.getContext(), "F3: FISH", this.pos.x, this.pos.y + 200);
 //                this.font.draw(renderer.getContext(), "F4: NARWHAL", this.pos.x, this.pos.y + 250);
@@ -29,8 +29,8 @@ game.Characters = me.ScreenObject.extend({
         this.handler = me.event.subscribe(me.event.KEYDOWN, function(action, keyCode, edge) {
             if (action === "F1") {
                 //if the player presses F1, then the game loads the seaKing character
-                game.data.character = "proton";
-                me.state.change(me.state.CHAR2);
+                game.data.character2 = "neutron";
+                me.state.change(me.state.PLAY);
             } 
 //            else if (action === "F2") {
 //                //if the player presses F2, then the game loads the orc character
@@ -72,6 +72,8 @@ game.Characters = me.ScreenObject.extend({
         me.event.unsubscribe(this.handler);
     }
 });
+
+
 
 
 

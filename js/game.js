@@ -9,7 +9,9 @@ var game = {
         option2: "",
         playerMoveSpeed: 5,
         character: "",
-        player: ""
+        character2: "",
+        player: "",
+        particle2: ""
     },
     // Run on page load.
     "onload": function() {
@@ -41,6 +43,9 @@ var game = {
 
         //creates the collider state
         me.state.COLL = 116;
+        
+        //creates the collider state
+        me.state.CHAR2 = 117;
 
         // Initialize the audio.
         me.audio.init("mp3,ogg");
@@ -60,9 +65,9 @@ var game = {
 
         me.pool.register("neutron", game.Neutron, true);
         
-        me.pool.register("GameTimerManager", game.GameTimerManager, true);
-        me.pool.register("HeroDeathManager", game.HeroDeathManager, true);
-        me.pool.register("ExperienceManager", game.ExperienceManager, true);
+//        me.pool.register("GameTimerManager", game.GameTimerManager, true);
+//        me.pool.register("HeroDeathManager", game.HeroDeathManager, true);
+//        me.pool.register("ExperienceManager", game.ExperienceManager, true);
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
@@ -71,6 +76,7 @@ var game = {
         me.state.set(me.state.NEW, new game.NewProfile());
         me.state.set(me.state.LOAD, new game.LoadProfile());
         me.state.set(me.state.CHAR, new game.Characters());
+        me.state.set(me.state.CHAR2, new game.Characters2());
         me.state.set(me.state.COLL, new game.Colliders());
 
         // Start the game.

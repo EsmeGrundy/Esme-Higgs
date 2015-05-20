@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/index.php</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/php/controller/create-db.php</file>
+            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/resources.js</file>
+            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/entities/neutron.js</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/game.js</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/entities/entities.js</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/play.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/particles.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/loadProfile.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/resources.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/php/controller/create-user.php</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/php/model/config.php</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/title.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/colliders.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/php/model/Database.php</file>
+            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/entities/GameManager.js</file>
         </group>
     </open-files>
 </project-private>
