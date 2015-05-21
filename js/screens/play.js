@@ -9,7 +9,7 @@ game.PlayScreen = me.ScreenObject.extend({
         me.levelDirector.loadLevel("Switz01");
 
         this.resetPlayer(10, 0);
-        this.resetParticle(2600, 0);
+        this.resetParticle(1000, 0);
 
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.LEFT, "left");
