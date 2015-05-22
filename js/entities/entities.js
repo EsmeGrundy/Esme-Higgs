@@ -28,9 +28,9 @@ game.PlayerEntity = me.Entity.extend({
         this.facing = "right";
     },
     addAnimation: function() {
-        this.renderable.addAnimation("idle", [0]);
-        this.renderable.addAnimation("walk", [0, 1, 2, 3, 4, 5, 6, 7], 80);
-//        this.renderable.addAnimation("attack", [65, 66, 67, 68, 69, 70, 71, 72], 80);
+       this.renderable.addAnimation("idle", [8]);
+        this.renderable.addAnimation("walk", [8, 9, 10, 11, 12, 13, 14, 15], 80);
+        this.renderable.addAnimation("explode", [0, 1, 2, 3, 4, 5, 6, 7], 80);
     },
     update: function(delta) {
 //        this.now = new Date().getTime();

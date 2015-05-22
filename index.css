@@ -45,3 +45,7 @@ body {
 #register{
     visibility: hidden;
 }
+
+.queries{
+    visibility: hidden;
+}
