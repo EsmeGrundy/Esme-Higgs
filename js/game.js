@@ -11,7 +11,11 @@ var game = {
         character: "",
         character2: "",
         player: "",
-        particle2: ""
+        particle2: "",
+        win: "",
+        exp: 0,
+        particles: "",
+        collided: ""
     },
     // Run on page load.
     "onload": function() {
@@ -43,7 +47,7 @@ var game = {
 
         //creates the collider state
         me.state.COLL = 116;
-        
+
         //creates the collider state
         me.state.CHAR2 = 117;
 
@@ -64,10 +68,10 @@ var game = {
         me.pool.register("proton", game.PlayerEntity, true);
 
         me.pool.register("neutron", game.Neutron, true);
-        
+
 //        me.pool.register("GameTimerManager", game.GameTimerManager, true);
 //        me.pool.register("HeroDeathManager", game.HeroDeathManager, true);
-//        me.pool.register("ExperienceManager", game.ExperienceManager, true);
+        me.pool.register("ExperienceManager", game.ExperienceManager);
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());

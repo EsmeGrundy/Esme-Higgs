@@ -2,7 +2,7 @@ game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y, settings);
         this.setAttributes();
-        this.type = "PlayerEntity";
+        this.type = "Proton";
         this.setFlags();
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
         this.addAnimation();
@@ -33,30 +33,15 @@ game.PlayerEntity = me.Entity.extend({
         this.renderable.addAnimation("explode", [0, 1, 2, 3, 4, 5, 6, 7], 80);
     },
     update: function(delta) {
-//        this.now = new Date().getTime();
-//        this.dead = this.checkIfDead();
         this.checkKeyPressesAndMove();
-//        this.checkAbilityKeys();
         this.setAnimation();
 
-//        me.collision.check(this, true, this.collideHandler.bind(this), true);
+        me.collision.check(this, true, this.collideHandler.bind(this), true);
         this.body.update(delta);
         this._super(me.Entity, "update", [delta]);
         return true;
 
     },
-//    checkIfDead: function() {
-//        //if the player's health is less than or equal to 0...
-//        if (this.health <= 0) {
-//            //checkIfDead returns a value of true
-//            return true;
-//            //the player's position is reset
-//            this.pos.x = 10;
-//            this.pos.y = 0;
-//            //the player's health is reset
-//            this.health = game.data.playerHealth;
-//        }
-//    },
     checkKeyPressesAndMove: function() {
         //if the player presses the right arrow key..
         if (me.input.isKeyPressed("right")) {
@@ -73,15 +58,6 @@ game.PlayerEntity = me.Entity.extend({
             //the player does not move
             this.body.vel.x = 0;
         }
-//        //checks if the up arrow key is pressed
-//        if (me.input.isKeyPressed("jump")) {
-//            //checks if mario is not already jumping or falling
-//            if (!this.body.jumping && !this.body.falling) {
-//                this.jump();
-//            }
-//        }
-//        //this.attacking is true if the "a" key is pressed
-//        this.attacking = me.input.isKeyPressed("attack");
     },
     moveRight: function() {
         //sets the direction the player is facing to right
@@ -99,47 +75,9 @@ game.PlayerEntity = me.Entity.extend({
         //the animation stays the same
         this.flipX(false);
     },
-//    jump: function() {
-//        //sets mario's velocity in the y direction to the y velocity from setVelocity and smooths animation
-//        this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
-//        //makes jumping variable true
-//        this.body.jumping = true;
-//    },
-//    checkAbilityKeys: function() {
-//        // if the "q" key is pressed...
-//        if (me.input.isKeyPressed("skill1")) {
-//            //the level of ability1 is increased
-//            game.data.ability1 += 1;
-//            this.Bubble();
-//        }
-//        //if the "w" key is pressed...
-//        else if (me.input.isKeyPressed("skill2")) {
-//            //the level of ability2 is increased
-//            game.data.ability2 += 1;
-//            this.makeWhirlpool();
-//        }
-//        //if the "e" key is pressed...
-//        else if (me.input.isKeyPressed("skill3")) {
-//            //the level of ability3 is increased
-//            game.data.ability3 += 1;
-//            this.throwSpear();
-//        }
-//    },
     setAnimation: function() {
-        //if the attack key is pressed...
-//        if (this.attacking) {
-//            //and if the animation is not already "attack"...
-//            if (!this.renderable.isCurrentAnimation("attack")) {
-//                //set the animation to "attack" and then "idle"
-//                this.renderable.setCurrentAnimation("attack", "idle");
-//                this.renderable.setAnimationFrame();
-//            }
-//        }
         //if the player is moving and it is not attacking
-//        else
-        if (this.body.vel.x !== 0
-//                    && !this.renderable.isCurrentAnimation("attack")
-                ) {
+        if (this.body.vel.x !== 0) {
             //and if the player is not already walking
             if (!this.renderable.isCurrentAnimation("walk")) {
                 //the animation is set to walk
@@ -147,103 +85,25 @@ game.PlayerEntity = me.Entity.extend({
             }
         }
         //if the player is not attacking
+        else if(this.body.vel.x === 0 && game.data.collided)
+        {
+            //the player is idle
+            this.renderable.setCurrentAnimation("explode");
+        }
         else
-//            if (!this.renderable.isCurrentAnimation("attack")) 
         {
             //the player is idle
             this.renderable.setCurrentAnimation("idle");
         }
+    },
+    collideHandler: function(response) {
+        //if the player collides with something, then a function containing the response is called
+        if (response.b.type === 'Neutron') {
+            game.data.collided = true;
+            this.renderable.setCurrentAnimation("explode");
+            game.data.win = true;
+            game.data.particles = 3;
+            this.body.vel.x = 0;
+        }
     }
-//    ,
-//    loseHealth: function(damage) {
-//        //the health decreases by the value passed to the function
-//        this.health = this.health - damage;
-//    },
-//    collideHandler: function(response) {
-//        //if the player collides with something, then a function containing the response is called
-//        if (response.b.type === 'EnemyBaseEntity') {
-//            this.collideWithEnemyBase(response);
-//        }
-//        else if (response.b.type === 'EnemyCreep') {
-//            this.collideWithEnemyCreep(response);
-//        }
-//        else if (response.b.type === 'TeamCreep') {
-//            this.collideWithTeamCreep(response);
-//        }
-//        else if (response.b.type === 'TeamCreep2') {
-//            this.collideWithTeamCreep2(response);
-//        }
-//    },
-//    collideWithEnemyBase: function(response) {
-//        var ydif = this.pos.y - response.b.pos.y;
-//        var xdif = this.pos.x - response.b.pos.x;
-//
-//        if (ydif < -60 && xdif < 60 && xdif > -40) {
-//            this.body.falling = false;
-//            this.body.vel.y = -1;
-//        }
-//        else if (xdif > -30 && this.facing === 'right') {
-//            this.body.vel.x = 0;
-//            this.pos.x = this.pos.x - 1;
-//        }
-//        else if (xdif < 70 && this.facing === 'left') {
-//            this.body.vel.x = 0;
-//            this.pos.x = this.pos.x + 1;
-//        }
-//
-//        if (this.renderable.isCurrentAnimation("attack") && this.now - this.lastHit >= game.data.playerAttackTimer) {
-//            this.lastHit = this.now;
-//            response.b.loseHealth(game.data.playerAttack);
-//        }
-//    },
-//    collideWithEnemyCreep: function(response) {
-//        var xdif = this.pos.x - response.b.pos.x;
-//        var ydif = this.pos.y - response.b.pos.y;
-//
-//        this.stopMovement(xdif);
-//        if (this.checkAttack(xdif, ydif)) {
-//            this.hitCreep(response);
-//        }
-//    },
-//    collideWithTeamCreep: function(response) {
-//        var xdif = this.pos.x - response.b.pos.x;
-//        var ydif = this.pos.y - response.b.pos.y;
-//
-//        this.stopMovement(xdif);
-//        if (this.checkAttack(xdif, ydif)) {
-//            this.hitCreep(response);
-//        }
-//    },
-//    collideWithTeamCreep2: function(response) {
-//        var xdif = this.pos.x - response.b.pos.x;
-//        var ydif = this.pos.y - response.b.pos.y;
-//
-//        this.stopMovement(xdif);
-//        if (this.checkAttack(xdif, ydif)) {
-//            this.hitCreep(response);
-//        }
-//    },
-//    stopMovement: function(xdif) {
-//        if (xdif > 30) {
-//            this.pos.x = this.pos.x + 1;
-//            this.body.vel.x === 0;
-//        } else if (xdif < -30) {
-//            this.pos.x = this.pos.x - 1;
-//            this.body.vel.x === 0;
-//        }
-//    },
-//    checkAttack: function(xdif, ydif) {
-//        if (this.renderable.isCurrentAnimation("attack") && (this.now - this.lastHit >= game.data.playerAttackTimer) && (Math.abs(ydif) <= 40) &&
-//                (((xdif > 0) && this.facing === "left") || ((xdif < 0) && this.facing === "right"))) {
-//            this.lastHit = this.now;
-//            return true;
-//        }
-//        return false;
-//    },
-//    hitCreep: function(response) {
-//        if (response.b.health <= this.attack) {
-//            game.data.gold += 1;
-//        }
-//        response.b.loseHealth(game.data.playerAttack);
-//    }
 });

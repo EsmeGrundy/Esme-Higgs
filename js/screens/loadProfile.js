@@ -4,12 +4,12 @@ game.LoadProfile = me.ScreenObject.extend({
         document.getElementById("input").style.visibility = "visible";
         document.getElementById("load").style.visibility = "visible";
         //unbinds the keys used during the game
-        me.input.unbindKey(me.input.KEY.B);
-        me.input.unbindKey(me.input.KEY.Q);
-        me.input.unbindKey(me.input.KEY.W);
-        me.input.unbindKey(me.input.KEY.E);
-        me.input.unbindKey(me.input.KEY.A);
-        me.input.unbindKey(me.input.KEY.M);
+//        me.input.unbindKey(me.input.KEY.B);
+//        me.input.unbindKey(me.input.KEY.Q);
+//        me.input.unbindKey(me.input.KEY.W);
+//        me.input.unbindKey(me.input.KEY.E);
+//        me.input.unbindKey(me.input.KEY.A);
+//        me.input.unbindKey(me.input.KEY.M);
         //adds the text
         me.game.world.addChild(new (me.Renderable.extend({
             init: function() {
