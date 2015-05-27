@@ -6,16 +6,19 @@ game.PlayScreen = me.ScreenObject.extend({
         // reset the score
         game.data.score = 0;
 
-        me.levelDirector.loadLevel("Switz01");
+        me.levelDirector.loadLevel(game.data.level);
 
         this.resetPlayer(10, 0);
         this.resetParticle(1000, 0);
+        
+        var experienceManager = me.pool.pull("ExperienceManager", 0, 0, {});
+        me.game.world.addChild(experienceManager, 0);
 
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.LEFT, "left");
         me.input.bindKey(me.input.KEY.A, "left2");
         me.input.bindKey(me.input.KEY.D, "right2");
-        me.input.bindKey(me.input.KEY.ENTER, "start");
+//        me.input.bindKey(me.input.KEY.ENTER, "start");
         
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();

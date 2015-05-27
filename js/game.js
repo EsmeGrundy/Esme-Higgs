@@ -15,7 +15,10 @@ var game = {
         win: "",
         exp: 0,
         particles: "",
-        collided: ""
+        collided: "",
+        level: "",
+        discovered: ""
+        
     },
     // Run on page load.
     "onload": function() {
@@ -51,6 +54,9 @@ var game = {
         //creates the collider state
         me.state.CHAR2 = 117;
 
+//        //creates the collider state
+//        me.state.GAMEOVER = 118;
+//        
         // Initialize the audio.
         me.audio.init("mp3,ogg");
 

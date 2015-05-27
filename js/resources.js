@@ -4,6 +4,7 @@ game.resources = [
      * {name: "example", type:"image", src: "data/img/example.png"},
      */
     {name: "Back-Switzerland", type: "image", src: "data/img/Back-Switzerland.png"},
+    {name: "Back-Texas", type: "image", src: "data/img/Back-Texas.png"},
     {name: "meta-tiles", type: "image", src: "data/img/meta-tiles.png"},
     {name: "proton", type: "image", src: "data/img/Particle1.png"},
     {name: "neutron", type: "image", src: "data/img/Particle2.png"},
@@ -22,7 +23,8 @@ game.resources = [
      * {name: "example01", type: "tmx", src: "data/map/example01.tmx"},
      * {name: "example01", type: "tmx", src: "data/map/example01.json"},
      */
-    {name: "Switz01", type: "tmx", src: "data/map/Switzerland.tmx"}
+    {name: "Switz01", type: "tmx", src: "data/map/Switzerland.tmx"},
+    {name: "Tex01", type: "tmx", src: "data/map/Texas.tmx"}
 
     /* Background music. 
      * @example

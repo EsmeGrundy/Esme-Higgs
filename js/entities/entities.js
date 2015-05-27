@@ -30,7 +30,7 @@ game.PlayerEntity = me.Entity.extend({
     addAnimation: function() {
        this.renderable.addAnimation("idle", [8]);
         this.renderable.addAnimation("walk", [8, 9, 10, 11, 12, 13, 14, 15], 80);
-        this.renderable.addAnimation("explode", [0, 1, 2, 3, 4, 5, 6, 7], 80);
+        this.renderable.addAnimation("explode", [4, 5], 80);
     },
     update: function(delta) {
         this.checkKeyPressesAndMove();
@@ -103,6 +103,7 @@ game.PlayerEntity = me.Entity.extend({
             this.renderable.setCurrentAnimation("explode");
             game.data.win = true;
             game.data.particles = 3;
+            game.data.discovered = "3 up quarks and 3 down quarks";
             this.body.vel.x = 0;
         }
     }

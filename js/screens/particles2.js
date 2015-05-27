@@ -30,7 +30,7 @@ game.Characters2 = me.ScreenObject.extend({
             if (action === "F1") {
                 //if the player presses F1, then the game loads the seaKing character
                 game.data.character2 = "neutron";
-                me.state.change(me.state.PLAY);
+                me.state.change(me.state.COLL);
             } 
 //            else if (action === "F2") {
 //                //if the player presses F2, then the game loads the orc character

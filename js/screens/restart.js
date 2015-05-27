@@ -12,6 +12,7 @@ game.RestartScreen = me.ScreenObject.extend({
                     
                     draw: function(renderer){
                         this.font.draw(renderer.getContext(), "Game Over!", 450, 130);
+                        this.font.draw(renderer.getContext(), "You discovered:" + game.data.discovered, 450, 330);
                         this.font.draw(renderer.getContext(), "Press ENTER to go back to the menu!", 250, 530);
                     }
                     

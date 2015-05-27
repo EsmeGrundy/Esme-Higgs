@@ -9,6 +9,7 @@ game.ExperienceManager = Object.extend({
         if (game.data.win === true) {
             //the gameOver function is called and passed a value of true
             this.gameOver(true);
+            console.log("gameOver activated");
         } 
         //if the player has not killed the enemy base and the game is not already over
         else if (game.data.win === false) {
@@ -22,6 +23,7 @@ game.ExperienceManager = Object.extend({
         if (win) {
             //the exp variable goes up by 10
             game.data.exp += game.data.particles;
+            console.log("updated exp");
         } else {
             //otherwise the exp only goes up by 1
             game.data.exp += 1;
