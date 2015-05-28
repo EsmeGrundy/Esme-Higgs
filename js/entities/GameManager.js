@@ -9,7 +9,6 @@ game.ExperienceManager = Object.extend({
         if (game.data.win === true) {
             //the gameOver function is called and passed a value of true
             this.gameOver(true);
-            console.log("gameOver activated");
         } 
         //if the player has not killed the enemy base and the game is not already over
         else if (game.data.win === false) {
@@ -41,7 +40,7 @@ game.ExperienceManager = Object.extend({
         })
                 .success(function(response) {
                     //if the value passed to the function is true
-                    if (response === "true") {
+                    if (response === "true2") {
                         //the state changes to the game over screen
                         me.state.change(me.state.RESTART);
                     } else {

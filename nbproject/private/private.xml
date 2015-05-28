@@ -6,14 +6,11 @@
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/particles.js</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/resources.js</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/index.php</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/entities/neutron.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/index.css</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/particles2.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/restart.js</file>
+            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/entities/electron-neutrino.js</file>
+            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/entities/tau.js</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/game.js</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/entities/electron.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/entities/entities.js</file>
-            <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/title.js</file>
             <file>file:/C:/xampp/htdocs/Esme-Higgs/js/screens/colliders.js</file>
         </group>
     </open-files>

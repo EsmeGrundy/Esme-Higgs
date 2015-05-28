@@ -76,9 +76,11 @@ var game = {
         me.pool.register("neutron", game.Neutron, true);
         
         me.pool.register("electron", game.Electron, true);
+        
+        me.pool.register("electron-neutrino", game.ElectronNeutrino, true);
+        
+        me.pool.register("tau", game.Tau, true);
 
-//        me.pool.register("GameTimerManager", game.GameTimerManager, true);
-//        me.pool.register("HeroDeathManager", game.HeroDeathManager, true);
         me.pool.register("ExperienceManager", game.ExperienceManager);
 
         me.state.set(me.state.MENU, new game.TitleScreen());

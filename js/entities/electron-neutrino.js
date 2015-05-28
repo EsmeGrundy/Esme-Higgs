@@ -1,12 +1,13 @@
-game.PlayerEntity = me.Entity.extend({
+game.ElectronNeutrino = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y, settings);
         this.setAttributes();
-        this.type = "Proton";
+        this.type = "ElectronNeutrino";
         this.setFlags();
         this.particle = game.data.character;
         this.particle2 = game.data.character2;
-        if (this.particle === "proton") {
+        //allows the game to follow the entity if it is the main character
+        if (this.particle === "electron-neutrino") {
             me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
         }
         this.addAnimation();
@@ -14,7 +15,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     setSuper: function(x, y, settings) {
         this._super(me.Entity, "init", [x, y, {
-                image: "proton",
+                image: "electron-neutrino",
                 height: 128,
                 width: 128,
                 spriteheight: "128",
@@ -31,17 +32,15 @@ game.PlayerEntity = me.Entity.extend({
     setFlags: function() {
         this.facing = "right";
         game.data.collided = false;
-
     },
     addAnimation: function() {
-        this.renderable.addAnimation("idle", [8]);
-        this.renderable.addAnimation("walk", [8, 9, 10, 11, 12, 13, 14, 15], 80);
-        this.renderable.addAnimation("explode", [4, 5], 80);
+        this.renderable.addAnimation("idle", [0]);
+        this.renderable.addAnimation("walk", [0, 1, 2, 3, 4, 5, 6, 7], 80);
+        this.renderable.addAnimation("explode", [9, 10], 80);
     },
     update: function(delta) {
         this.checkKeyPressesAndMove();
         this.setAnimation();
-
         me.collision.check(this, true, this.collideHandler.bind(this), true);
         this.body.update(delta);
         this._super(me.Entity, "update", [delta]);
@@ -49,7 +48,7 @@ game.PlayerEntity = me.Entity.extend({
 
     },
     checkKeyPressesAndMove: function() {
-        if (this.particle2 === "proton") {
+        if (this.particle2 === "electron-neutrino"){
             //if the player presses the right arrow key..
             if (me.input.isKeyPressed("right2")) {
                 //the player moves right as dictated by the moveRight function
@@ -65,7 +64,7 @@ game.PlayerEntity = me.Entity.extend({
                 //the player does not move
                 this.body.vel.x = 0;
             }
-        } else if (this.particle === "proton") {
+        } else if (this.particle === "electron-neutrino"){
             //if the player presses the right arrow key..
             if (me.input.isKeyPressed("right")) {
                 //the player moves right as dictated by the moveRight function
@@ -100,8 +99,7 @@ game.PlayerEntity = me.Entity.extend({
         this.flipX(false);
     },
     setAnimation: function() {
-        //if the player is moving and it is not attacking
-        if (this.body.vel.x !== 0) {
+        if (this.body.vel.x !== 0 && !game.data.collided) {
             //and if the player is not already walking
             if (!this.renderable.isCurrentAnimation("walk")) {
                 //the animation is set to walk
@@ -123,36 +121,39 @@ game.PlayerEntity = me.Entity.extend({
     collideHandler: function(response) {
         //if the player collides with something, then a function containing the response is called
         if (response.b.type === 'Neutron') {
-            game.data.win = true;
-            game.data.particles = 3;
-            game.data.discovered = "3 up quarks and 3 down quarks";
-            game.data.collided = true;
-            this.body.vel.x = 0;
-             this.renderable.setCurrentAnimation("explode");
-        } else if (response.b.type === 'Electron') {
+            //you've won the game, discovered some particles, paused, and exploded
             game.data.win = true;
             game.data.particles = 4;
-            game.data.discovered = "2 up quarks, 1 down quark, and 1 electron";
+            game.data.discovered = "2 down quarks, 1 up quark, and 1 electron-neutrino";
             game.data.collided = true;
             this.body.vel.x = 0;
-            console.log(game.data.win);
             this.renderable.setCurrentAnimation("explode");
-        } else if (response.b.type === 'ElectronNeutrino') {
+        } else if (response.b.type === 'Proton') {
             game.data.win = true;
             game.data.particles = 4;
-            game.data.discovered = "2 up quarks, 1 down quark and 1 electron neutrino";
+            game.data.discovered = "2 up quarks, 1 down quark, and 1 electron-neutrino";
             game.data.collided = true;
             this.body.vel.x = 0;
-            console.log(game.data.win);
             this.renderable.setCurrentAnimation("explode");
-        } else if (response.b.type === 'Tau') {
+        }else if (response.b.type === 'Electron') {
             game.data.win = true;
-            game.data.particles = 4;
-            game.data.discovered = "2 up quarks, 1 down quark and 1 tau";
+            game.data.particles = 2;
+            game.data.discovered = "1 electron-neutrino and 1 electron";
             game.data.collided = true;
             this.body.vel.x = 0;
-            console.log(game.data.win);
+            this.renderable.setCurrentAnimation("explode");
+        }else if (response.b.type === 'Tau') {
+            game.data.win = true;
+            game.data.particles = 2;
+            game.data.discovered = "1 electron-neutrino and 1 tau";
+            game.data.collided = true;
+            this.body.vel.x = 0;
             this.renderable.setCurrentAnimation("explode");
         }
     }
 });
+
+
+
+
+

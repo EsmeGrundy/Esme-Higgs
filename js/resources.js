@@ -9,6 +9,8 @@ game.resources = [
     {name: "proton", type: "image", src: "data/img/Particle1.png"},
     {name: "neutron", type: "image", src: "data/img/Particle2.png"},
     {name: "electron", type: "image", src: "data/img/Particle3.png"},
+    {name: "electron-neutrino", type: "image", src: "data/img/Particle4.png"},
+    {name: "tau", type: "image", src: "data/img/Particle5.png"},
     {name: "title-screen", type: "image", src: "data/img/title-higgs.png"},
     {name: "new-screen", type: "image", src: "data/img/newpic-higgs.png"},
     {name: "load-screen", type: "image", src: "data/img/loadpic-higgs.png"},

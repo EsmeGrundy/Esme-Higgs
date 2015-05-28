@@ -12,6 +12,7 @@ $password = "root";
 $database = "higgs_db";
 
 if(!isset($_SESSION["connection"])) { //if the variable is not set, then...
+    $_SESSION["name"] = '';
     $connection = new Database($host, $username, $password, $database); //create a new database
     $_SESSION["connection"] = $connection; //connection to database
 }

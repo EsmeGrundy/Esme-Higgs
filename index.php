@@ -50,6 +50,8 @@ require_once("php/controller/create-db.php");
         <script type="text/javascript" src="js/entities/entities.js"></script>
         <script type="text/javascript" src="js/entities/neutron.js"></script>
         <script type="text/javascript" src="js/entities/electron.js"></script>
+        <script type="text/javascript" src="js/entities/electron-neutrino.js"></script>
+        <script type="text/javascript" src="js/entities/tau.js"></script>
         <script type="text/javascript" src="js/entities/HUD.js"></script>
         <script type="text/javascript" src="js/entities/GameManager.js"></script>
 

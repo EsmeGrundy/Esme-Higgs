@@ -133,7 +133,25 @@ game.Neutron = me.Entity.extend({
         }else if (response.b.type === 'Electron') {
             game.data.win = true;
             game.data.particles = 4;
-            game.data.discovered = "2 up quarks, 1 down quark, and 1 electron";
+            game.data.discovered = "2 down quarks, 1 up quark, and 1 electron";
+            game.data.collided = true;
+            this.body.vel.x = 0;
+            console.log(game.data.win);
+            this.renderable.setCurrentAnimation("explode");
+        }
+         else if (response.b.type === 'ElectronNeutrino') {
+            game.data.win = true;
+            game.data.particles = 4;
+            game.data.discovered = "2 down quarks, 1 up quark and 1 electron-neutrino";
+            game.data.collided = true;
+            this.body.vel.x = 0;
+            console.log(game.data.win);
+            this.renderable.setCurrentAnimation("explode");
+        }
+         else if (response.b.type === 'Tau') {
+            game.data.win = true;
+            game.data.particles = 4;
+            game.data.discovered = "2 down quarks, 1 up quark and 1 tau";
             game.data.collided = true;
             this.body.vel.x = 0;
             console.log(game.data.win);

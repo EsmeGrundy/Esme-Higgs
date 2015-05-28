@@ -13,7 +13,7 @@ game.Colliders = me.ScreenObject.extend({
 
             },
             draw: function(renderer) {
-                this.font.draw(renderer.getContext(), "PRESS F1 to F5 TO BUY, PRESS F6 TO SKIP", this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "PRESS F1 to F2 TO BUY", this.pos.x, this.pos.y);
                 this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.x + 100, this.pos.y + 50);
                 this.font.draw(renderer.getContext(), "F1: SWITZERLAND", this.pos.x, this.pos.y + 100);
                 this.font.draw(renderer.getContext(), "F2: TEXAS", this.pos.x, this.pos.y + 150);
