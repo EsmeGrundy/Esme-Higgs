@@ -7,12 +7,12 @@ game.RestartScreen = me.ScreenObject.extend({
                 me.game.world.addChild(new (me.Renderable.extend({
                     init: function(){
                         this._super(me.Renderable, 'init', [510, 30, me.game.viewport.width, me.game.viewport.height]);
-                        this.font = new me.Font("Arial", 46, "white");
+                        this.font = new me.Font("Helvetica", 32, "yellow");
                     },
                     
                     draw: function(renderer){
                         this.font.draw(renderer.getContext(), "Game Over!", 450, 130);
-                        this.font.draw(renderer.getContext(), "You discovered:" + game.data.discovered, 450, 330);
+                        this.font.draw(renderer.getContext(), "You discovered:" + game.data.discovered, 50, 330);
                         this.font.draw(renderer.getContext(), "Press ENTER to go back to the menu!", 250, 530);
                     }
                     

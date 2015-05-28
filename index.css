@@ -15,6 +15,7 @@ body {
 
 	/* Allow canvas to hit the edges of the browser viewport. */
 	margin: 0;
+        padding: 0;
 }
 
 #screen canvas {
@@ -47,5 +48,7 @@ body {
 }
 
 .queries{
+    margin: 0;
+    padding: 0;
     visibility: hidden;
 }

@@ -1,7 +1,7 @@
 game.Characters2 = me.ScreenObject.extend({
     onResetEvent: function() {
         //adds the screen to the world
-        me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage("exp-screen")), -10);
+        me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage("character2-screen")), -10);
         //binds the keys the player can use to buy things to the game
         me.input.bindKey(me.input.KEY.F1, "F1");
         me.input.bindKey(me.input.KEY.F2, "F2");
@@ -19,9 +19,9 @@ game.Characters2 = me.ScreenObject.extend({
             draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "PRESS F1 to F5 TO BUY, PRESS F6 TO SKIP", this.pos.x, this.pos.y);
 //                this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.x + 100, this.pos.y + 50);
-                this.font.draw(renderer.getContext(), "F1: NEUTRON", this.pos.x, this.pos.y + 100);
-//                this.font.draw(renderer.getContext(), "F2: ORC", this.pos.x, this.pos.y + 150);
-//                this.font.draw(renderer.getContext(), "F3: FISH", this.pos.x, this.pos.y + 200);
+                this.font.draw(renderer.getContext(), "F1: PROTON", this.pos.x, this.pos.y + 100);
+                this.font.draw(renderer.getContext(), "F2: NEUTRON", this.pos.x, this.pos.y + 150);
+                this.font.draw(renderer.getContext(), "F3: ELECTRON", this.pos.x, this.pos.y + 200);
 //                this.font.draw(renderer.getContext(), "F4: NARWHAL", this.pos.x, this.pos.y + 250);
 //                this.font.draw(renderer.getContext(), "F5: UNICORN", this.pos.x, this.pos.y + 300);
             }
@@ -29,19 +29,19 @@ game.Characters2 = me.ScreenObject.extend({
         this.handler = me.event.subscribe(me.event.KEYDOWN, function(action, keyCode, edge) {
             if (action === "F1") {
                 //if the player presses F1, then the game loads the seaKing character
-                game.data.character2 = "neutron";
+                game.data.character2 = "proton";
                 me.state.change(me.state.COLL);
             } 
-//            else if (action === "F2") {
-//                //if the player presses F2, then the game loads the orc character
-//                game.data.character = "orcSpear";
-//                me.state.change(me.state.PLAY);
-//            }
-//            else if (action === "F3") {
-//                //if the player presses F3, then the game loads the fish character
-//                game.data.character = "fish";
-//                me.state.change(me.state.PLAY);
-//            }
+            else if (action === "F2") {
+                //if the player presses F2, then the game loads the orc character
+                game.data.character2 = "neutron";
+                me.state.change(me.state.COLL);
+            }
+            else if (action === "F3") {
+                //if the player presses F3, then the game loads the fish character
+                game.data.character = "electron";
+                me.state.change(me.state.COLL);
+            }
 //            else if (action === "F4") {
 //                //if the player presses F4, then the game loads the narwhal character
 //                game.data.character = "narwhal";

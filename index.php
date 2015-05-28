@@ -49,6 +49,7 @@ require_once("php/controller/create-db.php");
 
         <script type="text/javascript" src="js/entities/entities.js"></script>
         <script type="text/javascript" src="js/entities/neutron.js"></script>
+        <script type="text/javascript" src="js/entities/electron.js"></script>
         <script type="text/javascript" src="js/entities/HUD.js"></script>
         <script type="text/javascript" src="js/entities/GameManager.js"></script>
 
@@ -130,10 +131,6 @@ require_once("php/controller/create-db.php");
                             } else {
                                 var data = jQuery.parseJSON(response);
                                 game.data.exp = data["exp"];
-                                game.data.exp1 = data["exp1"];
-                                game.data.exp2 = data["exp2"];
-                                game.data.exp3 = data["exp3"];
-                                game.data.exp4 = data["exp4"];
                                 me.state.change(me.state.CHAR);
                             }
                         })

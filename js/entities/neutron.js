@@ -4,6 +4,11 @@ game.Neutron = me.Entity.extend({
         this.setAttributes();
         this.type = "Neutron";
         this.setFlags();
+        this.particle = game.data.character;
+        this.particle2 = game.data.character2;
+        if (this.particle === "neutron") {
+            me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+        }
         this.addAnimation();
         this.renderable.setCurrentAnimation("idle");
     },
@@ -45,20 +50,38 @@ game.Neutron = me.Entity.extend({
 
     },
     checkKeyPressesAndMove: function() {
-        //if the player presses the right arrow key..
-        if (me.input.isKeyPressed("right2")) {
-            //the player moves right as dictated by the moveRight function
-            this.moveRight();
-        }
-        //if the player presses the left arrow key...
-        else if (me.input.isKeyPressed("left2")) {
-            //the player moves left as dictated by the moveLeft function
-            this.moveLeft();
-        }
-        //if no arrow key is pressed
-        else {
-            //the player does not move
-            this.body.vel.x = 0;
+         if (this.particle2 === "neutron"){
+            //if the player presses the right arrow key..
+            if (me.input.isKeyPressed("right2")) {
+                //the player moves right as dictated by the moveRight function
+                this.moveRight();
+            }
+            //if the player presses the left arrow key...
+            else if (me.input.isKeyPressed("left2")) {
+                //the player moves left as dictated by the moveLeft function
+                this.moveLeft();
+            }
+            //if no arrow key is pressed
+            else {
+                //the player does not move
+                this.body.vel.x = 0;
+            }
+        } else if (this.particle === "neutron"){
+            //if the player presses the right arrow key..
+            if (me.input.isKeyPressed("right")) {
+                //the player moves right as dictated by the moveRight function
+                this.moveRight();
+            }
+            //if the player presses the left arrow key...
+            else if (me.input.isKeyPressed("left")) {
+                //the player moves left as dictated by the moveLeft function
+                this.moveLeft();
+            }
+            //if no arrow key is pressed
+            else {
+                //the player does not move
+                this.body.vel.x = 0;
+            }
         }
     },
     moveRight: function() {
@@ -103,6 +126,15 @@ game.Neutron = me.Entity.extend({
             game.data.win = true;
             game.data.particles = 3;
             game.data.discovered = "3 up quarks and 3 down quarks";
+            game.data.collided = true;
+            this.body.vel.x = 0;
+            console.log(game.data.win);
+            this.renderable.setCurrentAnimation("explode");
+        }else if (response.b.type === 'Electron') {
+            game.data.win = true;
+            game.data.particles = 4;
+            game.data.discovered = "2 up quarks, 1 down quark, and 1 electron";
+            game.data.collided = true;
             this.body.vel.x = 0;
             console.log(game.data.win);
             this.renderable.setCurrentAnimation("explode");
